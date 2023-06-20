@@ -1,0 +1,5 @@
+export enum ActionTypes {
+  ADD_COFFEE = 'ADD_COFFEE',
+  DECREASE_COFFEE = 'DECREASE_COFFEE',
+  DELETE_COFFEE = 'DELETE_COFFEE',
+}
