@@ -9,6 +9,10 @@ export const HomeContainer = styled.main`
 
   @media (max-width: 980px) {
     flex-direction: column-reverse;
+
+    img {
+      max-width: 80%;
+    }
   }
 `
 
@@ -60,7 +64,6 @@ export const ProductsDiv = styled.main`
   display: flex;
   flex-direction: column;
   gap: 3.35;
-
   h2 {
     margin-bottom: 3rem;
     font-weight: 800;
