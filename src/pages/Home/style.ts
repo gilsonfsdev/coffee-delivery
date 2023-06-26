@@ -6,6 +6,10 @@ export const HomeContainer = styled.main`
   justify-content: space-between;
   gap: 3.5rem;
   padding: 5rem 0;
+
+  @media (max-width: 980px) {
+    flex-direction: column-reverse;
+  }
 `
 
 export const TextDiv = styled.div`
@@ -20,10 +24,17 @@ export const DescriptionDiv = styled.div`
     font-size: 3rem;
     line-height: 4rem;
     margin-bottom: 1rem;
+
+    @media (max-width: 980px) {
+      text-align: center;
+    }
   }
 
   p {
     font-size: 1.25rem;
+    @media (max-width: 980px) {
+      text-align: center;
+    }
   }
 `
 
@@ -33,7 +44,9 @@ export const AdvantagesDiv = styled.div`
   gap: 0.4rem;
 
   align-items: center;
-
+  @media (max-width: 980px) {
+    margin: 0 auto;
+  }
   p {
     font-size: 0.9rem;
     display: flex;
@@ -49,7 +62,7 @@ export const ProductsDiv = styled.main`
   gap: 3.35;
 
   h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     font-weight: 800;
     font-size: 2rem;
     color: ${(props) => props.theme['base-subtitle']};

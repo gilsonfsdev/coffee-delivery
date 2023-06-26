@@ -4,12 +4,15 @@ import { Router } from './Router'
 
 import { defaultTheme } from './styles/themes/default'
 import { GlobalStyle } from './global'
+import { CoffeContextProvider } from './context/CoffeeContext'
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
-        <Router />
+        <CoffeContextProvider>
+          <Router />
+        </CoffeContextProvider>
       </BrowserRouter>
 
       <GlobalStyle />

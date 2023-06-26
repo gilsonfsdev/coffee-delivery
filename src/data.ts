@@ -21,7 +21,7 @@ export const coffes: CoffeesType[] = [
     type: [CoffeeType.Tradicional],
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e graõs moídos',
-    value: '5,00',
+    price: 5,
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const coffes: CoffeesType[] = [
     type: [CoffeeType.Tradicional],
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
-    value: '5,00',
+    price: 5,
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const coffes: CoffeesType[] = [
     type: [CoffeeType.Tradicional],
     name: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
-    value: '5,00',
+    price: 5,
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const coffes: CoffeesType[] = [
     type: [CoffeeType.Tradicional, CoffeeType.Gelado],
     name: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
-    value: '5,00',
+    price: 5,
   },
   {
     id: 5,
@@ -53,7 +53,7 @@ export const coffes: CoffeesType[] = [
     type: [CoffeeType.Tradicional, CoffeeType.ComLeite],
     name: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
-    value: '5,50',
+    price: 6,
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ export const coffes: CoffeesType[] = [
     name: 'Latte',
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
-    value: '6,00',
+    price: 6,
   },
   {
     id: 7,
@@ -71,7 +71,7 @@ export const coffes: CoffeesType[] = [
     name: 'Latte',
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
-    value: '6,00',
+    price: 6,
   },
   {
     id: 8,
@@ -80,7 +80,7 @@ export const coffes: CoffeesType[] = [
     name: 'Macchiato',
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
-    value: '6,00',
+    price: 6,
   },
   {
     id: 9,
@@ -88,7 +88,7 @@ export const coffes: CoffeesType[] = [
     type: [CoffeeType.Tradicional, CoffeeType.ComLeite],
     name: 'Moccacino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
-    value: '7,00',
+    price: 7,
   },
   {
     id: 10,
@@ -96,7 +96,7 @@ export const coffes: CoffeesType[] = [
     type: [CoffeeType.Especial, CoffeeType.ComLeite],
     name: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
-    value: '8,00',
+    price: 8,
   },
   {
     id: 11,
@@ -105,7 +105,7 @@ export const coffes: CoffeesType[] = [
     name: 'Cubano',
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
-    value: '10,00',
+    price: 10,
   },
   {
     id: 12,
@@ -113,7 +113,7 @@ export const coffes: CoffeesType[] = [
     type: [CoffeeType.Especial],
     name: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
-    value: '6,00',
+    price: 6,
   },
   {
     id: 13,
@@ -121,7 +121,7 @@ export const coffes: CoffeesType[] = [
     type: [CoffeeType.Especial],
     name: 'Arábe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
-    value: '6,00',
+    price: 6,
   },
   {
     id: 14,
@@ -129,6 +129,6 @@ export const coffes: CoffeesType[] = [
     type: [CoffeeType.Especial, CoffeeType.Alcoolico],
     name: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
-    value: '12,00',
+    price: 12,
   },
 ]

@@ -1,8 +1,13 @@
 import { AddProducts, Input, Paragráfo, ProductCard, Span } from './style'
-import { useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 
 import ButtonSvg from '../../../assets/Button.svg'
 import { Minus, Plus } from 'phosphor-react'
+import {
+  CoffeeContext,
+  ProdutosNoCarrinhoType,
+} from '../../../context/CoffeeContext'
+import { Link } from 'react-router-dom'
 
 export enum CoffeeType {
   Tradicional = 'Tradicional',
@@ -14,11 +19,13 @@ export enum CoffeeType {
 
 export interface CoffeesType {
   id: number
+  pedido?: number
   img: string
   type: CoffeeType[]
   name: string
   description: string
-  value: string
+  price: number
+  quantity?: number | null
 }
 
 export function MenuCoffe({
@@ -27,42 +34,95 @@ export function MenuCoffe({
   type,
   name,
   description,
-  value,
+  price,
 }: CoffeesType) {
-  const [howMuch, setHowMuch] = useState(0)
+  const [singularCoffeeQuantity, setSingularCoffeeQuantity] = useState(0)
+  const { selectedCoffees, setSelectedCoffees, setTotalQuantity } =
+    useContext(CoffeeContext)
 
-  function handleDecrease() {
-    setHowMuch((state) => (state > 0 ? state - 1 : 0))
+  useEffect(() => {
+    const sumQuantity = selectedCoffees.reduce(
+      (total, coffee) => total + coffee.quantity,
+      0,
+    )
+    setTotalQuantity(sumQuantity)
+  }, [selectedCoffees, setTotalQuantity])
+
+  function handleDecrease(idToRemove: number) {
+    setSingularCoffeeQuantity((state) => (state > 0 ? state - 1 : 0))
+
+    const existingCoffee = selectedCoffees.find(
+      (coffee) => coffee.id === idToRemove,
+    )
+
+    if (existingCoffee) {
+      if (existingCoffee.quantity === 1) {
+        setSelectedCoffees((state) =>
+          state.filter((coffee) => coffee.id !== idToRemove),
+        )
+      } else {
+        const updatedCoffees = selectedCoffees.map((coffee) =>
+          coffee.id === idToRemove
+            ? { ...coffee, quantity: coffee.quantity - 1 }
+            : coffee,
+        )
+        setSelectedCoffees(updatedCoffees)
+      }
+    }
   }
 
-  function handleAdd() {
-    setHowMuch((state) => state + 1)
+  function handleAdd(idToAdd: number) {
+    setSingularCoffeeQuantity((state) => state + 1)
+
+    const existingCoffee = selectedCoffees.find(
+      (coffee) => coffee.id === idToAdd,
+    )
+
+    if (existingCoffee) {
+      const updatedCoffees = selectedCoffees.map((coffee) =>
+        coffee.id === idToAdd
+          ? { ...coffee, quantity: coffee.quantity + 1 }
+          : coffee,
+      )
+      setSelectedCoffees(updatedCoffees)
+    } else {
+      const newCoffeeComanda: ProdutosNoCarrinhoType = {
+        id,
+        img,
+        name,
+        quantity: 1,
+        price,
+      }
+      setSelectedCoffees((state) => [...state, newCoffeeComanda])
+    }
   }
 
   return (
     <ProductCard>
       <img src={img} alt="" />
       <div>
-        {type.map((type) => {
-          return <Span key={id}>{type}</Span>
+        {type.map((type, index) => {
+          return <Span key={index}>{type}</Span>
         })}
       </div>
       <h4>{name}</h4>
       <Paragráfo>{description}</Paragráfo>
       <AddProducts>
         <p>
-          R$ <span>{value}</span>
+          R$ <span>{price}</span>
         </p>
         <Input>
-          <button onClick={handleDecrease}>
+          <button onClick={() => handleDecrease(id)}>
             <Minus />
           </button>
-          <p>{howMuch}</p>
-          <button onClick={handleAdd}>
+          <p>{singularCoffeeQuantity}</p>
+          <button onClick={() => handleAdd(id)}>
             <Plus />
           </button>
         </Input>
-        <img src={ButtonSvg} alt="" />
+        <Link to="/checkout">
+          <img src={ButtonSvg} alt="" />
+        </Link>
       </AddProducts>
     </ProductCard>
   )

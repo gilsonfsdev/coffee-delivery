@@ -67,7 +67,7 @@ export function Home() {
                 type={coffee.type}
                 name={coffee.name}
                 description={coffee.description}
-                value={coffee.value}
+                price={coffee.price}
               />
             )
           })}

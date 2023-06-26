@@ -63,7 +63,7 @@ export const AddProducts = styled.div`
   }
 
   img {
-    margin-bottom: -2.45rem;
+    margin-top: 0.2rem;
     height: 1.8rem;
   }
 `
