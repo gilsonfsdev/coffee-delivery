@@ -75,7 +75,7 @@ export function CheckOut() {
 
           <Form>
             <input
-              type="number"
+              type="string"
               placeholder="CEP"
               value={cep !== 0 ? cep : ''}
               onChange={(e) => setCep(parseFloat(e.target.value))}
